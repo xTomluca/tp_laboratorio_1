@@ -96,11 +96,11 @@ int main()
             {
                 case 1:
                         volverDefault(&resultadoSuma, &resultadoResta, &resultadoDivision, &resultadoMultiplicacion, &resultadoFactorial, &totalFunciones);
-                        resultadoOperandoUno = getNumUno(&numUno, "1- Ingresar 1er operando (A=x)\n", "\nVALOR INVALIDO! Reingresar 1er operando (A=x) ");
+                        resultadoOperandoUno = getNumUno(&numUno, &resultadoOperandoUno, &resultadoOperandoDos, "1- Ingresar 1er operando (A=x)\n", "\nVALOR INVALIDO! Reingresar 1er operando (A=x) ");
                         break;
                 case 2:
                         volverDefault(&resultadoSuma, &resultadoResta, &resultadoDivision, &resultadoMultiplicacion, &resultadoFactorial, &totalFunciones);
-                        resultadoOperandoDos = getNumDos(&numDos, "2- Ingresar 2do operando (B=x)\n", "\nVALOR INVALIDO! Reingresar 2do operando (A=x) ");
+                        resultadoOperandoDos = getNumDos(&numDos, &resultadoOperandoUno, &resultadoOperandoDos, "2- Ingresar 2do operando (B=x)\n", "\nVALOR INVALIDO! Reingresar 2do operando (A=x) ");
                         break;
                 case 3:
                         volverDefault(&resultadoSuma, &resultadoResta, &resultadoDivision, &resultadoMultiplicacion, &resultadoFactorial, &totalFunciones);

@@ -8,15 +8,17 @@
 /** \brief FUNCION PARA EL INGRESO Y VALIDACION DEL PRIMER OPERANDO ACORDE AL TIPO DE DATO
  *
  * \param numUno float* Cargo el primer operando (A).
+ * \param validacionOperandoUno int Carga si el operando (A) fue cargado anteriormente // Si (A y B) = 0 entonces B = 1 REINICIA valor B
+ * \param validacionOperandoDos int Carga si el operando (B) fue cargado anteriormente // Si (A y B) = 0 entonces A = 1 REINICIA valor A
  * \param mensaje char* Mensaje de instrucción al usuario.
  * \param mensajeError char* Mensaje de error para el usuario, en caso de sobrepasar el tamaño de almacenamiento segun tipo de dato.
  * \return int Retorno [0] si el numero se guardo sin errores, [-1] si sobrepaso los limites del long.
  *
  */
 
-int getNumUno(float *numUno, char* mensaje, char* mensajeError)
+int getNumUno(float *numUno, int *validacionOperandoUno, int *validacionOperandoDos, char* mensaje, char* mensajeError)
 {
-    int retorno = -1;
+    int retorno = 1;
     float aux = 0;
     printf("%s", mensaje);
     fflush(stdin);
@@ -27,6 +29,10 @@ int getNumUno(float *numUno, char* mensaje, char* mensajeError)
         scanf("%f", &aux);
     }
     *numUno = aux;
+    if(*validacionOperandoUno == 0 && *validacionOperandoDos == 0)
+    {
+        *validacionOperandoDos = 1;
+    }
     retorno = 0;
 
     return retorno;
@@ -37,15 +43,17 @@ int getNumUno(float *numUno, char* mensaje, char* mensajeError)
 /** \brief  FUNCION PARA EL INGRESO Y VALIDACION DEL SEGUNDO OPERANDO ACORDE AL TIPO DE DATO.
  *
  * \param numDos float* Cargo el segundo operando (B).
+ * \param validacionOperandoUno int Carga si el operando (A) fue cargado anteriormente // Si (A y B) = 0 entonces B = 1 REINICIA valor B
+ * \param validacionOperandoDos int Carga si el operando (B) fue cargado anteriormente // Si (A y B) = 0 entonces A = 1 REINICIA valor A
  * \param mensaje char* Mensaje de instruccion al usuario.
  * \param mensajeError char* Mensaje de error para el usuario,
                     en caso de sobrepasar el tamaño de almacenamiento segun tipo de dato.
  * \return int Retorno [0] si el numero se guardo sin errores, [-1] si sobrepaso los limites del long.
  *
  */
-int getNumDos(float *numDos, char* mensaje, char* mensajeError)
+int getNumDos(float *numDos, int *validacionOperandoUno, int *validacionOperandoDos, char* mensaje, char* mensajeError)
 {
-    int retorno = -1;
+    int retorno = 1;
     float aux = 0;
     printf("%s", mensaje);
     fflush(stdin);
@@ -57,6 +65,10 @@ int getNumDos(float *numDos, char* mensaje, char* mensajeError)
     }
     *numDos = aux;
     retorno = 0;
+    if(*validacionOperandoUno == 0 && *validacionOperandoDos == 0)
+    {
+        *validacionOperandoUno = 1;
+    }
     return retorno;
 }
 

@@ -2,8 +2,8 @@
 #define FUNCIONES_H_INCLUDED
 #include <limits.h>
 
-int getNumUno(float *numUno, char* mensaje, char* mensajeError);
-int getNumDos(float *numDos, char* mensaje, char* mensajeError);
+int getNumUno(float *numUno, int *validacionOperandoUno, int *validacionOperandoDos, char* mensaje, char* mensajeError);
+int getNumDos(float *numDos,  int *validacionOperandoUno, int *validacionOperandoDos, char* mensaje, char* mensajeError);
 int getSuma(float *suma, float auxUno, float auxDos, int condicionOperandoUno, int condicionOperandoDos, char* mensajeErrorA, char* mensajeErrorB, char* mensajeErrorAB);
 int getResta(float *resta, float auxUno, float auxDos, int condicionOperandoUno, int condicionOperandoDos, char* mensajeErrorA, char* mensajeErrorB, char* mensajeErrorAB);
 int getDivision(float *division, float auxUno, float auxDos, int condicionOperandoUno, int condicionOperandoDos, char* mensajeErrorA, char* mensajeErrorB, char* mensajeErrorAB, char* mensajeErrorCero);
