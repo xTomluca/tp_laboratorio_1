@@ -447,7 +447,7 @@ static int isValidLink(char* link)
     return retorno;
 }
 
-EMovie* agregarPelicula(EMovie* movie)
+EMovie* agregarPelicula(EMovie* this, int* cantidadActual)
 {
     int id;
     char title[50];
@@ -456,9 +456,6 @@ EMovie* agregarPelicula(EMovie* movie)
     char linkImagen[400];
     float duration;
     float score;
-    int isEmpty;
-    EMovie* this;
-
     this = movie_new();
 
     if(this != NULL && !isValidAll(title,genre,&duration,description,&score,linkImagen))
@@ -473,15 +470,9 @@ EMovie* agregarPelicula(EMovie* movie)
             && !movie_setId(this))
         {
             movie_getId(this,&id);
-            movie_getTitle(this,title);
-            movie_getGenre(this,genre);
-            movie_getDescription(this,description);
-            movie_getLink(this,linkImagen);
-            movie_getDuration(this,&duration);
-            movie_getScore(this,&score);
-            movie_getIsEmpty(this,&isEmpty);
             printf("\nCARGA EXITOSA! ID PELICULA: %d\n",id);
-            movie_generarBinario(this);
+            *cantidadActual+=1;
+            printf("%d CANTIDAD ACUTAL", *cantidadActual);
             return this;
         }
         else
@@ -492,22 +483,120 @@ EMovie* agregarPelicula(EMovie* movie)
     movie_delete(this);
     return NULL;
 }
-void movie_generarBinario(EMovie* array)
+void movie_generarBinario(EMovie* this, int len)
 {
     FILE* pFile;
-    pFile = fopen("peliculas.bin","w");
-    EMovie *puntero = array;
-
-
+    pFile = fopen("peliculas.html","wb");
+    int i,isEmpty;
+    float duration,score;
+    char title[50], genre[20], description[400], linkImagen[400];
     if(pFile==NULL)
     {
         printf("\n ERROR APERTURA ARCHIVO");
         exit(1);
     }
-    fwrite(puntero, sizeof(EMovie),1,pFile);
+    else if(len >= 0)
+    {
+        printf("\nLEN : %d",len);
+        fprintf(pFile,"<!DOCTYPE html>\n");
+        fprintf(pFile,"<!-- Template by Quackit.com -->\n");
+        fprintf(pFile,"<html lang='en'>\n");
+        fprintf(pFile,"<head>\n");
+        fprintf(pFile,"<meta charset='utf-8'>\n");
+        fprintf(pFile,"<meta http-equiv='X-UA-Compatible' content='IE=edge'>\n");
+        fprintf(pFile,"<meta name='viewport' content='width=device-width, initial-scale=1'>\n");
+        fprintf(pFile,"<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->\n");
+        fprintf(pFile,"<meta http-equiv='X-UA-Compatible' content='IE=edge'>\n");
+        fprintf(pFile,"<meta name='viewport' content='width=device-width, initial-scale=1'>\n");
+        fprintf(pFile,"<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->\n");
+        fprintf(pFile,"<title>Lista peliculas</title>\n");
+        fprintf(pFile,"<!-- Bootstrap Core CSS -->\n");
+        fprintf(pFile,"<link href='css/bootstrap.min.css' rel='stylesheet'>\n");
+        fprintf(pFile,"<!-- Custom CSS: You can use this stylesheet to override any Bootstrap styles and/or apply your own styles -->\n");
+        fprintf(pFile,"<link href='css/custom.css' rel='stylesheet'>\n");
+        fprintf(pFile,"<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->\n");
+        fprintf(pFile,"<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->\n");
+        fprintf(pFile,"<!--[if lt IE 9]>\n");
+        fprintf(pFile,"<script src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js'></script>\n");
+        fprintf(pFile,"<script src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js'></script>\n");
+        fprintf(pFile,"<![endif]-->\n");
+        fprintf(pFile,"</head>\n");
+        fprintf(pFile,"<body>\n");
+        fprintf(pFile,"<div class='container'>\n");
+        fprintf(pFile,"<div class='row'>\n");
+        fprintf(pFile,"<!-- Repetir esto para cada pelicula -->\n");
 
+        for(i=0;i<=len;i++)
+        {
+            movie_getIsEmpty((this+i),&isEmpty);
+            printf("\n\n EL ISEMPLI%d",isEmpty);
+            if(!isEmpty)
+            {
+                movie_getTitle((this+i),title);
+                movie_getGenre((this+i),genre);
+                movie_getDuration((this+i),&duration);
+                movie_getDescription((this+i),description);
+                movie_getScore((this+i),&score);
+                movie_getLink((this+i),linkImagen);
+                printf("---------------------%s GENRE",genre);
 
+                /*fprintf(pFile,"<article class='col-md-4 article-intro'>\n");
+                fprintf(pFile,"<a href='#'>\n");
+                fprintf(pFile,"<img class='img-responsive img-rounded' src='%s' alt=''>\n",linkImagen);
+                fprintf(pFile,"<h3>\n");
+                fprintf(pFile,"<a href='#'>%s</a>\n",title);
+                fprintf(pFile,"</h3>\n");
+                fprintf(pFile,"<ul>\n");
+                fprintf(pFile,"<li>%s</li>\n",genre);
+                fprintf(pFile,"<li>%f</li>\n",score);
+                fprintf(pFile,"<li>%f</li>\n",duration);
+                fprintf(pFile,"</ul>\n");
+                fprintf(pFile,"<p>%s</p>\n",description);
+                fprintf(pFile,"</article>\n");*/
+            }
+        }
+        fprintf(pFile,"<!-- Repetir esto para cada pelicula -->\n");
+        fprintf(pFile,"</div>\n");
+        fprintf(pFile,"<!-- /.row -->\n");
+        fprintf(pFile,"</div>\n");
+        fprintf(pFile,"<!-- /.container -->\n");
+        fprintf(pFile,"<!-- jQuery -->\n");
+        fprintf(pFile,"<script src='js/jquery-1.11.3.min.js'></script>\n");
+        fprintf(pFile,"<!-- Bootstrap Core JavaScript -->\n");
+        fprintf(pFile,"<script src='js/bootstrap.min.js'></script>\n");
+        fprintf(pFile,"<!-- IE10 viewport bug workaround -->\n");
+        fprintf(pFile,"<script src='js/ie10-viewport-bug-workaround.js'></script>\n");
+        fprintf(pFile,"<!-- Placeholder Images -->\n");
+        fprintf(pFile,"<script src='js/holder.min.js'></script>\n");
+        fprintf(pFile,"</body>\n");
+        fprintf(pFile,"</html>\n");
+    }
+    else{printf("ERROR AL ENTRAR AL ELSE");}
     fclose(pFile);
 }
+void movie_imprimir(EMovie* array)
+{
+    FILE* pLecturaTexto;
+    pLecturaTexto = fopen("peliculas.bin","rb");
+    if(pLecturaTexto==NULL)
+    {
+
+    }
+    else
+    {
+            fread(array,sizeof(EMovie),1,pLecturaTexto);
+            printf("\nDescrp: _ %s",array->descripcion);
+            printf("\nTitulo_ %s",array->titulo);
+            printf("\nPuntaje_ %2.f",array->puntaje);
+            printf("\nDuracion _  %2.f",array->duracion);
+    }
+}
+
+ void crearPagina(EMovie* this)
+{
+    //pPelicula
+    //fprintf(,"<article class='col-md-4 article-intro'><a href='#'><img class='img-responsive img-rounded' src='%s' alt=''></a><h3><a href='#'>%s</a></h3><ul><li>Género:%s</li><li>Puntaje:%d</li><li>Duración:%d</li></ul><p>%s</p></article>
+}
+
 
 
