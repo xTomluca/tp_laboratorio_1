@@ -450,6 +450,7 @@ static int isValidLink(char* link)
 EMovie* agregarPelicula(EMovie* this, int* cantidadActual)
 {
     int id;
+    int empty;
     char title[50];
     char genre[20];
     char description[400];
@@ -469,8 +470,10 @@ EMovie* agregarPelicula(EMovie* this, int* cantidadActual)
             && !movie_setIsEmpty(this)
             && !movie_setId(this))
         {
+            movie_getIsEmpty(this,&empty);
             movie_getId(this,&id);
             printf("\nCARGA EXITOSA! ID PELICULA: %d\n",id);
+            printf("\nCARGA EMPTYYY! ID PELICULA: %d\n",empty);
             *cantidadActual+=1;
             printf("%d CANTIDAD ACUTAL", *cantidadActual);
             return this;
@@ -483,11 +486,11 @@ EMovie* agregarPelicula(EMovie* this, int* cantidadActual)
     movie_delete(this);
     return NULL;
 }
-void movie_generarBinario(EMovie* this, int len)
+void movie_generarBinario(EMovie** this, int* len)
 {
     FILE* pFile;
     pFile = fopen("peliculas.html","wb");
-    int i,isEmpty;
+    int i,isEmpty=1;
     float duration,score;
     char title[50], genre[20], description[400], linkImagen[400];
     if(pFile==NULL)
@@ -495,9 +498,9 @@ void movie_generarBinario(EMovie* this, int len)
         printf("\n ERROR APERTURA ARCHIVO");
         exit(1);
     }
-    else if(len >= 0)
+    else if(*len >= 0)
     {
-        printf("\nLEN : %d",len);
+        printf("\nLEN : %d",*len);
         fprintf(pFile,"<!DOCTYPE html>\n");
         fprintf(pFile,"<!-- Template by Quackit.com -->\n");
         fprintf(pFile,"<html lang='en'>\n");
@@ -526,18 +529,18 @@ void movie_generarBinario(EMovie* this, int len)
         fprintf(pFile,"<div class='row'>\n");
         fprintf(pFile,"<!-- Repetir esto para cada pelicula -->\n");
 
-        for(i=0;i<=len;i++)
+        for(i=0;i<=*len;i++)
         {
-            movie_getIsEmpty((this+i),&isEmpty);
+            movie_getIsEmpty(this[i],&isEmpty);
             printf("\n\n EL ISEMPLI%d",isEmpty);
             if(!isEmpty)
             {
-                movie_getTitle((this+i),title);
-                movie_getGenre((this+i),genre);
-                movie_getDuration((this+i),&duration);
-                movie_getDescription((this+i),description);
-                movie_getScore((this+i),&score);
-                movie_getLink((this+i),linkImagen);
+                movie_getTitle(this[i],title);
+                movie_getGenre(this[i],genre);
+                movie_getDuration(this[i],&duration);
+                movie_getDescription(this[i],description);
+                movie_getScore(this[i],&score);
+                movie_getLink(this[i],linkImagen);
                 printf("---------------------%s GENRE",genre);
 
                 /*fprintf(pFile,"<article class='col-md-4 article-intro'>\n");

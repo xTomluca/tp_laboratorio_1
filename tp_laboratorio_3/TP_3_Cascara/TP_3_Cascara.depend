@@ -31,3 +31,17 @@
 
 1527717734 source:d:\documentos varios\github\labclas1\tp_laboratorio_3\tp_3_cascara\arraylist.a
 
+1528769092 source:e:\tp_laboratorio_3\tp_3_cascara\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"funciones.h"
+
+1528768927 e:\tp_laboratorio_3\tp_3_cascara\funciones.h
+
+1528768909 source:e:\tp_laboratorio_3\tp_3_cascara\main.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones.h"
+

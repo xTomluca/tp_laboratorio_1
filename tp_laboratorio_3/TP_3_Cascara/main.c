@@ -5,7 +5,7 @@
 
 int main()
 {
-    EMovie* movie;
+    EMovie* movie[limitePeliculas];
 //  init_personas(movie,limitePeliculas);
     char seguir='s';
     int opcion=0,cantidadActual=-1;
@@ -21,14 +21,14 @@ int main()
         switch(opcion)
         {
             case 1:
-                agregarPelicula(movie,&cantidadActual);
+                agregarPelicula(*movie,&cantidadActual);
                 break;
             case 2:
-                movie_delete(movie);
+                movie_delete(*movie);
                 break;
             case 3:
                 printf("\n CANTIDAD ACTUAL : %d",cantidadActual);
-               movie_generarBinario(movie,cantidadActual);
+               movie_generarBinario(movie,&cantidadActual);
                break;
             case 4:
                 seguir = 'n';

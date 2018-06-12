@@ -52,7 +52,7 @@ int movie_getScore(EMovie* this, float* score);
 int movie_setLink(EMovie* this, char* link);
 int movie_getLink(EMovie* this, char* link);
 EMovie* agregarPelicula(EMovie* this, int* cantidadActual);
-void movie_generarBinario(EMovie* array, int i);
+void movie_generarBinario(EMovie** array, int *i);
 void movie_imprimir(EMovie* array);
 
 #endif // FUNCIONES_H_INCLUDED
