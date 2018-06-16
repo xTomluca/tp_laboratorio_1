@@ -83,6 +83,8 @@ int al_add(ArrayList* this, void* pElement)
         {
             if(!resizeUp(this))
             {
+                this->pElements[al_len(this)]=pElement;
+                this->size++;
                 returnAux=0;
             }
         }
