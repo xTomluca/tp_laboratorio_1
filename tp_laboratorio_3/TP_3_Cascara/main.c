@@ -1,39 +1,50 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "funciones.h"
-#define limitePeliculas 100
+#include "movie.h"
+#include "valid.h"
+#include "arraylist\examples\example_4\inc\ArrayList.h"
 
 int main()
 {
-    EMovie* movie[limitePeliculas];
-//  init_personas(movie,limitePeliculas);
+    ArrayList* pArray = al_newArrayList();
     char seguir='s';
-    int opcion=0,cantidadActual=-1;
+    int opcion=0;
+
     while(seguir=='s')
     {
+        opcion=0;
         printf("1- Agregar pelicula\n");
         printf("2- Borrar pelicula\n");
         printf("3- Generar pagina web\n");
         printf("4- Salir\n");
-
-        scanf("%d",&opcion);
-
-        switch(opcion)
+        if(!getNumeroInt(4,1,&opcion,0,20,"",""))
         {
-            case 1:
-                agregarPelicula(*movie,&cantidadActual);
-                break;
-            case 2:
-                movie_delete(*movie);
-                break;
-            case 3:
-                printf("\n CANTIDAD ACTUAL : %d",cantidadActual);
-               movie_generarBinario(movie,&cantidadActual);
-               break;
-            case 4:
-                seguir = 'n';
-                break;
+            switch(opcion)
+            {
+                case 1:
+                    system("cls");
+                    agregarPelicula(pArray);
+                    break;
+                case 2:
+                    system("cls");
+                    borrarPelicula(pArray);
+                    break;
+                case 3:
+                    system("cls");
+                    movie_generarBinario(pArray);
+                    break;
+                case 4:
+                    seguir = 'n';
+                    break;
+            }
         }
+        else
+        {
+            system("cls");
+            printf("\nOPCION INVALIDA!! <1-4>\n\n");
+        }
+
     }
 
     return 0;

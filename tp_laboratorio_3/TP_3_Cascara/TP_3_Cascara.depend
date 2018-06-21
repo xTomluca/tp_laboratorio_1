@@ -1,47 +1,144 @@
 # depslib dependency file v1.0
-1527651676 source:d:\documentos varios\github\entregas\tp_laboratorio_1\tp_laboratorio_3\tp_3_cascara\main.c
+1529517959 source:c:\users\tomas\desktop\arraylist_2018\tp_3_cascara\main.c
 	<stdio.h>
 	<stdlib.h>
 	"funciones.h"
+	"movie.h"
+	"arraylist\examples\example_4\inc\ArrayList.h"
 
-1527651695 d:\documentos varios\github\entregas\tp_laboratorio_1\tp_laboratorio_3\tp_3_cascara\funciones.h
+1529518238 c:\users\tomas\desktop\arraylist_2018\tp_3_cascara\funciones.h
+	"arraylist\examples\example_4\inc\ArrayList.h"
 
-1527651677 source:d:\documentos varios\github\entregas\tp_laboratorio_1\tp_laboratorio_3\tp_3_cascara\funciones.c
+1529025204 c:\users\tomas\desktop\arraylist_2018\tp_3_cascara\arraylist\examples\example_4\inc\arraylist.h
+
+1529119240 source:c:\users\tomas\desktop\arraylist_2018\tp_3_cascara\arraylist\examples\example_4\src\arraylist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../inc/ArrayList.h"
+	"../inc/Employee.h"
+
+1529025204 c:\users\tomas\desktop\arraylist_2018\tp_3_cascara\arraylist\examples\example_4\inc\employee.h
+
+1529512254 source:c:\users\tomas\desktop\arraylist_2018\tp_3_cascara\movie.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"movie.h"
+	"valid.h"
+
+1529512247 c:\users\tomas\desktop\arraylist_2018\tp_3_cascara\movie.h
+
+1529543948 source:c:\users\tomas\desktop\arraylist_2018\tp_3_cascara\valid.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<ctype.h>
-	"funciones.h"
 
-1528251671 source:d:\documentos varios\github\labclas1\tp_laboratorio_3\tp_3_cascara\funciones.c
+1529543640 c:\users\tomas\desktop\arraylist_2018\tp_3_cascara\valid.h
+
+1529543625 source:c:\users\tomas\desktop\arraylist_2018\tp_3_cascara\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"movie.h"
+	"valid.h"
+	"funciones.h"
+	"arraylist\examples\example_4\inc\ArrayList.h"
+
+1529544385 source:d:\documentos varios\github\labclas1\tp_laboratorio_3\tp_3_cascara\arraylist\examples\example_4\src\arraylist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../inc/ArrayList.h"
+	"../inc/Employee.h"
+
+1529025204 d:\documentos varios\github\labclas1\tp_laboratorio_3\tp_3_cascara\arraylist\examples\example_4\inc\arraylist.h
+
+1529025204 d:\documentos varios\github\labclas1\tp_laboratorio_3\tp_3_cascara\arraylist\examples\example_4\inc\employee.h
+
+1529546355 source:d:\documentos varios\github\labclas1\tp_laboratorio_3\tp_3_cascara\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"movie.h"
+	"valid.h"
+	"funciones.h"
+	"arraylist\examples\example_4\inc\ArrayList.h"
+
+1529544383 d:\documentos varios\github\labclas1\tp_laboratorio_3\tp_3_cascara\movie.h
+
+1529546212 d:\documentos varios\github\labclas1\tp_laboratorio_3\tp_3_cascara\valid.h
+
+1529518238 d:\documentos varios\github\labclas1\tp_laboratorio_3\tp_3_cascara\funciones.h
+	"arraylist\examples\example_4\inc\ArrayList.h"
+
+1529548754 source:d:\documentos varios\github\labclas1\tp_laboratorio_3\tp_3_cascara\main.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones.h"
+	"movie.h"
+	"valid.h"
+	"arraylist\examples\example_4\inc\ArrayList.h"
+
+1529544381 source:d:\documentos varios\github\labclas1\tp_laboratorio_3\tp_3_cascara\movie.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"movie.h"
+	"valid.h"
+
+1529548357 source:d:\documentos varios\github\labclas1\tp_laboratorio_3\tp_3_cascara\valid.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<ctype.h>
-	"funciones.h"
 
-1528249898 d:\documentos varios\github\labclas1\tp_laboratorio_3\tp_3_cascara\funciones.h
-
-1528251281 source:d:\documentos varios\github\labclas1\tp_laboratorio_3\tp_3_cascara\main.c
+1529544385 source:d:\documentos varios\github\entregas\tp_laboratorio_1\tp_laboratorio_3\tp_3_cascara\arraylist\examples\example_4\src\arraylist.c
 	<stdio.h>
 	<stdlib.h>
+	<string.h>
+	"../inc/ArrayList.h"
+	"../inc/Employee.h"
+
+1529025204 d:\documentos varios\github\entregas\tp_laboratorio_1\tp_laboratorio_3\tp_3_cascara\arraylist\examples\example_4\inc\arraylist.h
+
+1529025204 d:\documentos varios\github\entregas\tp_laboratorio_1\tp_laboratorio_3\tp_3_cascara\arraylist\examples\example_4\inc\employee.h
+
+1529546355 source:d:\documentos varios\github\entregas\tp_laboratorio_1\tp_laboratorio_3\tp_3_cascara\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"movie.h"
+	"valid.h"
 	"funciones.h"
+	"arraylist\examples\example_4\inc\ArrayList.h"
 
-1527717734 d:\documentos varios\github\labclas1\tp_laboratorio_3\tp_3_cascara\arraylist.h
+1529544383 d:\documentos varios\github\entregas\tp_laboratorio_1\tp_laboratorio_3\tp_3_cascara\movie.h
 
-1527717734 source:d:\documentos varios\github\labclas1\tp_laboratorio_3\tp_3_cascara\arraylist.a
+1529546212 d:\documentos varios\github\entregas\tp_laboratorio_1\tp_laboratorio_3\tp_3_cascara\valid.h
 
-1528769092 source:e:\tp_laboratorio_3\tp_3_cascara\funciones.c
+1529518238 d:\documentos varios\github\entregas\tp_laboratorio_1\tp_laboratorio_3\tp_3_cascara\funciones.h
+	"arraylist\examples\example_4\inc\ArrayList.h"
+
+1529544381 source:d:\documentos varios\github\entregas\tp_laboratorio_1\tp_laboratorio_3\tp_3_cascara\movie.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"movie.h"
+	"valid.h"
+
+1529549286 source:d:\documentos varios\github\entregas\tp_laboratorio_1\tp_laboratorio_3\tp_3_cascara\valid.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<ctype.h>
-	"funciones.h"
 
-1528768927 e:\tp_laboratorio_3\tp_3_cascara\funciones.h
-
-1528768909 source:e:\tp_laboratorio_3\tp_3_cascara\main.c
+1529549354 source:d:\documentos varios\github\entregas\tp_laboratorio_1\tp_laboratorio_3\tp_3_cascara\main.c
 	<stdio.h>
 	<stdlib.h>
 	"funciones.h"
+	"movie.h"
+	"valid.h"
+	"arraylist\examples\example_4\inc\ArrayList.h"
 
